@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\Addproducts;
+use App\Http\Controllers\Addproducts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

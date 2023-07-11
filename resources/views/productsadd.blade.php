@@ -29,32 +29,40 @@
     </style>
 </head>
 
-<body>
+<body>@if($errors->any())
+    <ul>
+    @foreach ($errors->all() as $error )
+   <li>
+    {{ $error}}
+
+    </li>
+    @endforeach</ul>
+    @endif
     <div class="container-fluid  py-5">
         <div class="row justify-content-md-center">
             <div class="col-md-6">
                 <div class="form-container bg-white">
                     <h3 class="text-center mb-4">Add Products</h3>
-                    <form method="POST" action="/addprodb">
+                    <form method="POST" action="{{url('addprodb')}}">
                         @csrf
                         <div class="form-group">
                             <label for="productName">Product Name</label>
-                            <input type="text" class="form-control" id="productName"
+                            <input name="name" type="text" class="form-control" id="productName"
                                 placeholder="Enter product name">
                         </div>
                         <div class="form-group">
                             <label for="productPrice">Product Price</label>
-                            <input type="text" class="form-control" id="productPrice"
+                            <input name="price" type="text" class="form-control" id="productPrice"
                                 placeholder="Enter product price">
                         </div>
                         <div class="form-group">
                             <label for="productPrice">Quantity Unit </label>
-                            <input type="text" class="form-control" id="productPrice"
+                            <input  name="unit" type="text" class="form-control" id="productPrice"
                                 placeholder="Enter product unit">
                         </div>
                         <div class="form-group">
                             <label for="productDescription">Description</label>
-                            <textarea class="form-control" id="productDescription" placeholder="Enter about product"></textarea>
+                            <textarea name="description" class="form-control" id="productDescription" placeholder="Enter about product"></textarea>
                           </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
