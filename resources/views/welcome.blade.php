@@ -52,9 +52,9 @@
               Login
             </a>
             <div class="dropdown-menu" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="{{ url('/login') }}">Login as Customer</a>
+              <a class="dropdown-item" href="{{ url('/login/1') }}">Login as Customer</a>
 
-              <a class="dropdown-item" href="{{ url('/logind') }}">Login as Dealer</a>
+              <a class="dropdown-item" href="{{ url('/login/2') }}">Login as Dealer</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -62,8 +62,8 @@
               Register
             </a>
             <div class="dropdown-menu" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="{{ url('/register') }}">Register as User</a>
-              <a class="dropdown-item" href="{{ url('/registerd') }}">Register as Dealer</a>
+              <a class="dropdown-item" href="{{ url('/register/1') }}">Register as User</a>
+              <a class="dropdown-item" href="{{ url('/register/2') }}">Register as Dealer</a>
             </div>
           </li>
        <li class="nav-item">

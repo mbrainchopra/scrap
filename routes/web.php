@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use app\Http\Controllers\Addproducts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/login/{i}',function($i){
+    if($i==1){
+        return view('auth.login');
+    }
+    if($i==2){
+        return view('auth.logind');
+    }
+});
+Route::get('register/{i}',function($i){
+    if($i==1){
+        return view('auth.register');
+    }
+    if($i==2){
+        return view('auth.registerd');
+    }
+});
+
+Route::view('addpro','productsadd');
+
+Route::post('addprodb',[Addproducts::class,'addproduct']);
+
