@@ -38,8 +38,8 @@
     </li>
     @endforeach</ul>
     @endif
-    <div class="container-fluid  py-5">
-        <div class="row justify-content-md-center">
+    <div class= "container-fluid bg-dark  py-5">
+        <div class="row  justify-content-md-center">
             <div class="col-md-6">
                 <div class="form-container bg-white">
                     <h3 class="text-center mb-4">Add Products</h3>
@@ -48,29 +48,38 @@
                         <div class="form-group">
                             <label for="productName">Product Name</label>
                             <input name="name" type="text" class="form-control" id="productName"
-                                placeholder="Enter product name">
+                                placeholder="Enter product name" required>
                         </div>
                         <div class="form-group">
                             <label for="productPrice">Product Price</label>
                             <input name="price" type="text" class="form-control" id="productPrice"
-                                placeholder="Enter product price">
+                                placeholder="Enter product price" required>
                         </div>
                         <div class="form-group">
                             <label for="productPrice">Quantity Unit </label>
                             <input  name="unit" type="text" class="form-control" id="productPrice"
-                                placeholder="Enter product unit">
+                                placeholder="Enter product unit" required>
                         </div>
                         <div class="form-group">
                             <label for="productDescription">Description</label>
-                            <textarea name="description" class="form-control" id="productDescription" placeholder="Enter about product"></textarea>
+                            <textarea name="description" class="form-control" id="productDescription" placeholder="Enter about product" required></textarea>
                           </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-danger" href="{{ url('homeback') }}">Back to Home</a> <a class="btn btn-secondary" href="{{ url('viewproduct') }}">View Products</a>
+                        <br><br>
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
+<!-- Add the following code wherever you want to display the success message -->
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>

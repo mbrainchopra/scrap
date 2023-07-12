@@ -1,25 +1,23 @@
 <?php
-
 namespace App\Http\Controllers;
-use App\Models\product;
+
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class Addproducts extends Controller
+class AddProducts extends Controller
 {
-    public function addproduct(Request $pro)
+    public function addProduct(Request $request)
     {
-         $name = $pro->input('name');
-        $price = $pro->input('price');
-        $description = $pro->input('description');
-        $unit = $pro->input('unit');
-
-
+        $name = $request->input('name');
+        $price = $request->input('price');
+        $description = $request->input('description');
+        $unit = $request->input('unit');
 
         $user = Auth::user();
         $email = $user->email;
 
-        $newproduct = product::create([
+        $newProduct = Product::create([
             'name' => $name,
             'price' => $price,
             'unit' => $unit,
@@ -27,9 +25,9 @@ class Addproducts extends Controller
             'email' => $email,
         ]);
 
-        return redirect('addpro');
-       /*  $user = Auth::user();
-        $email = $user->email;
-        return $email; */
+        return redirect('addpro')->with('success', 'Succesfully Added');
+
+        // Alternatively, you can return the email as well
+        // return redirect('addpro')->with('success', 'Product added successfully.')->with('email', $email);
     }
 }
