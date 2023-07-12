@@ -1,4 +1,4 @@
-@extends('layouts.appd')
+@extends('layouts.appuser')
 
 @section('content')
 

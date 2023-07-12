@@ -5,7 +5,7 @@ use App\Http\Controllers\Addproducts;
 use App\Http\Controllers\Viewproducts;
 use App\Models\product;
 use App\Http\Controllers\HomeController2;
-
+use App\Http\Controllers\Requestpost;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +43,7 @@ Route::get('register/{i}',function($i){
 });
 
 Route::view('addpro','productsadd');
+Route::view('getorders','getorders');
 Route::get('viewproduct',[Viewproducts::class,'getpro']);
 
 
@@ -76,4 +77,5 @@ Route::delete('products/{id}', function ($id) {
     return redirect()->back()->with('success', 'Product deleted successfully.');
 })->name('products.destroy');
 Route::post('addprodb',[Addproducts::class,'addproduct']);
+Route::post('makereq',[Requestpost::class,'store']);
 
