@@ -1,11 +1,13 @@
 <?php
-
+use App\Http\Controllers\Reqctrl;
+use App\Http\Controllers\Requesthandle;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Addproducts;
 use App\Http\Controllers\Viewproducts;
 use App\Models\product;
 use App\Http\Controllers\HomeController2;
-use App\Http\Controllers\Requestpost;
+use App\Http\Controllers\Addrequest;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +34,10 @@ Route::get('/login/{i}',function($i){
         return view('auth.logind');
     }
 });
+
+Route::match(['get', 'post'], 'findreq', [Reqctrl::class, 'filterreq']);
+
+Route::get('viewrequet',[Requesthandle::class,'getreq']);
 Route::view('homeback','home');
 Route::get('register/{i}',function($i){
     if($i==1){
@@ -78,4 +84,6 @@ Route::delete('products/{id}', function ($id) {
 })->name('products.destroy');
 Route::post('addprodb',[Addproducts::class,'addproduct']);
 Route::post('makereq',[Requestpost::class,'store']);
+Route::post('accept/{id}', [AddRequest::class, 'addrequest']);
+
 

@@ -58,7 +58,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Requests</a>
+                            <a class="nav-link" href="{{url('findreq?1')}}">Requests</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Payment</a>
@@ -99,7 +99,7 @@
     </div>
 </body>
 
-
+{{--
 <footer>
     <section id="about">
         <div class="container">
@@ -130,5 +130,5 @@
     <div class="container">
       <p>&copy; 2023 Your Company. All rights reserved.</p>
     </div>
-</footer>
+</footer> --}}
 </html>
