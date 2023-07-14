@@ -28,7 +28,7 @@ class Requestpost extends Controller
 
         ]);
 
-   return "Success";
+        return view('homeuser');
 /*
         return view('homeuser');
  */

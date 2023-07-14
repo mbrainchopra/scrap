@@ -7,7 +7,7 @@
 <body>
 
 <div class="container">
-  <h2>Request Results</h2>
+  <h2>Request Results</h2><a href="{{url('Myorders')}}"><button  class="btn btn-success">My Orders</button></a>
 
   <!-- District selection box and button -->
   <div class="form-group"><form method='POST ' action="{{url('findreq')}}">
@@ -61,7 +61,7 @@
         <th>Product Type</th>
         <th>Quantity </th>
         <th>Accept</th>
-        <th>Decline</th>
+
         <th>See OnMap </th>
              </tr>
     </thead>
@@ -77,16 +77,12 @@
                     <form action="{{ url('accept', ['id' => $request->id]) }}" method="POST">
                         @csrf
 
-                        @if ($request->accepted)
-                            <button type="button" class="btn btn-success" disabled>&#10004; Accepted</button>
-                        @else
-                            <button type="submit" class="btn btn-success">Accept</button>
-                        @endif
+
+                            <button  onclick="showAcceptedMessage({{ $request->id }})" type="submit" id="c" class="btn btn-success">Accept</button>
+
                     </form>
                 </td>
-                <td>
-                    <button class="btn btn-danger">Decline</button>
-                </td>
+
                 <td>
                     <a href="https://www.google.com/maps?q={{ $request->latitude }},{{ $request->longitude }}" target="_blank" class="btn btn-primary">View Location</a>
                 </td>
@@ -97,23 +93,19 @@
             </tr>
         @endforelse
     </tbody>
+<body>
+    @if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+
+@endif
+
+</body>
+
 
 {{--192.168.1.14
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var forms = document.querySelectorAll('form[id^="accept-form-"]');
-            forms.forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    var tr = event.target.closest('tr');
-                    // Use the 'tr' variable to access the clicked row and perform further actions
-                    console.log('Clicked row:', tr);
-                    // Submit the form via AJAX if needed
-                    // form.submit();
-                });
-            });
-        });
-    </script> --}}
+    --}}
 
 
 
@@ -126,7 +118,6 @@
 
 </body>
 </html>
-<!--
 
 
 
@@ -136,27 +127,3 @@
 
 
 
-
-Full texts
-id
-name
-address
-contact
-payment_mode
-district
-product_type
-quantity
-unit
-latitude
-longitude
-created_at
-updated_at
-email
-
-
-
-
-
-
-
--->

@@ -51,7 +51,7 @@
                         @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Dashboard</a>
+                            <a class="nav-link" href="{{ url('homeback') }}">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('addpro') }}">Products</a>
@@ -61,7 +61,7 @@
                             <a class="nav-link" href="{{url('findreq?1')}}">Requests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Payment</a>
+                            <a class="nav-link" href="{{ url('Myorders') }}">MyOrders</a>
                         </li>
 
 

@@ -61,7 +61,10 @@
                             <a class="nav-link" href="">Status</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Report</a>
+                            <a class="nav-link" href="">Rate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Buy Scrap</a>
                         </li>
 
 

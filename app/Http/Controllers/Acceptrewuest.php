@@ -10,6 +10,7 @@ class Acceptrewuest extends Controller
     public function addrequest(Request $rqes){
         $id = $rqes->input('id');
         $message = Message::find($id);
+        
         return $message;
 
     }

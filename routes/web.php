@@ -7,7 +7,8 @@ use App\Http\Controllers\Viewproducts;
 use App\Models\product;
 use App\Http\Controllers\HomeController2;
 use App\Http\Controllers\Addrequest;
-
+use App\Http\Controllers\Requestpost;
+use App\Http\Controllers\Myorders;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +19,15 @@ use App\Http\Controllers\Addrequest;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::post('update-status/{id}', [Myorders::class,'updateStatus']);
+
 use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('Myorders',[Myorders::class,'showorder']);
 Auth::routes();
 Route::get('/homeus', [HomeController2::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
