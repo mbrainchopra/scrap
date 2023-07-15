@@ -39,34 +39,3 @@ class Addrequest extends Controller
     }
 }
 
-//
-/*
-accept =demail	name	address	contact	product_type	quantity	price	status	pstatus	lang	latt
-
-
-
-message =
-id
-name
-address
-contact
-payment_mode
-district
-product_type
-quantity
-unit
-latitude
-longitude
-created_at
-updated_at
-email
-
-
-demail	name	address	contact	product_type	quantity	price	status	pstatus	lang	latt
-
-
-
-
-
-
-*/

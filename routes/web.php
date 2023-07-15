@@ -9,6 +9,9 @@ use App\Http\Controllers\HomeController2;
 use App\Http\Controllers\Addrequest;
 use App\Http\Controllers\Requestpost;
 use App\Http\Controllers\Myorders;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\Myaccount;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,5 +93,4 @@ Route::delete('products/{id}', function ($id) {
 Route::post('addprodb',[Addproducts::class,'addproduct']);
 Route::post('makereq',[Requestpost::class,'store']);
 Route::post('accept/{id}', [AddRequest::class, 'addrequest']);
-
 

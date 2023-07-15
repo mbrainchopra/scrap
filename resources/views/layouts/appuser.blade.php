@@ -58,7 +58,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Status</a>
+                            <a class="nav-link" href="{{ url('status') }}">Status</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Rate</a>
@@ -102,7 +102,7 @@
     </div>
 </body>
 
-
+{{--
 <footer>
     <section id="about">
         <div class="container">
@@ -133,5 +133,5 @@
     <div class="container">
       <p>&copy; 2023 Your Company. All rights reserved.</p>
     </div>
-</footer>
+</footer> --}}
 </html>

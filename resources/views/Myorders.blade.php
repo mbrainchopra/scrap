@@ -3,7 +3,8 @@
 <head>
     <title>My Orders</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>@extends('layouts.appd')
+</head>
+@extends('layouts.appd')
 @section('content')
 <body>
 
@@ -20,12 +21,12 @@
                     <th>Quantity</th>
                     <th>Status</th>
                     <th>Location</th>
-                    <th>Chat</th>
+                    <th>Chat On WhatsApp</th>
                     <th>Update Status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($accepts as $accept)
+                @foreach($accepts->sortBy('status') as $accept)
                 <tr>
                     <td>{{ $accept->name }}</td>
                     <td>{{ $accept->address }}</td>
@@ -40,14 +41,16 @@
                         @elseif($accept->status == 3)
                         <span class="badge badge-primary">Package Shipped</span>
                         @elseif($accept->status == 4)
-                        <span class="badge badge-secondary">Finished</span>
+                        <span class="badge badge-danger">Finished</span>
                         @endif
                     </td>
                     <td>
                         <a href="https://www.google.com/maps?q={{ $accept->latt }},{{ $accept->lang }}" target="_blank" class="btn btn-primary">Location</a>
                     </td>
                     <td>
-                        <button class="btn btn-secondary book-btn" data-id="{{ $accept->id }}">Chat</button>
+                        <a href="https://api.whatsapp.com/send?phone={{ $accept->contact }}&text=Hello%20{{ urlencode($accept->name) }},%20I%20am%20interested%20in%20your%20{{ urlencode($accept->material) }}%20product.%20Could%20you%20please%20provide%20me%20with%20more%20information%20regarding%20it%3F" target="_blank">
+                            <button class="btn btn-success book-btn" data-id="{{ $accept->id }}">WhatsApp</button>
+                        </a>
                     </td>
                     <td>
                         <form action="{{ url('update-status', ['id' => $accept->id]) }}" method="POST" class="status-form">
@@ -64,7 +67,6 @@
                                 </div>
                             </div>
                         </form>
-
                     </td>
                 </tr>
                 @endforeach
@@ -76,5 +78,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>@endsection
+</body>
+@endsection
 </html>
